@@ -31,6 +31,7 @@ public class PedidoService {
 
     public void registrar(Pedido pedido) {
 
+        System.out.println("---------------------------------------");
         System.out.println("Registrando pedido");
         System.out.println("Cliente: " + pedido.getCliente());
         System.out.println("Producto: " + pedido.getProducto());
@@ -40,7 +41,7 @@ public class PedidoService {
         //NotificadorMail n1 = new NotificadorMail(); sin DI
         //Con DI por el contenedor
         Notificador notificador = this.selector.seleccionar(pedido.getTotal());
-        notificador.enviar(pedido.getDestino(), " ->Pedido registrado");
+        notificador.enviar(pedido.getDestino(), " -> Pedido registrado");
 
     }
 
