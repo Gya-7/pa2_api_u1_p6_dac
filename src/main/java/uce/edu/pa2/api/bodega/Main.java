@@ -17,24 +17,61 @@ public class Main {
     public static class App implements QuarkusApplication{
 
         @Inject
-        PedidoService pedidoService;
+        private AmbitoAplicacion ambitoAplicacion;
 
-         @Inject
-        PagoTarjetaCredito pagoT;
+        @Inject
+        private ClaseIntermedia claseIntermedia;
 
-         @Inject
-         PagoEfectivo pagoE;
+        @Inject
+        private AmbitoRequest ambitoRequest;
+        
+        @Inject
+        private AmbitoInject ambitoInject;
 
-          @Override
-        public int run(String... args) {
-                Pedido pedido = new Pedido("Dayerlin Aguilar", "Coca Cola", 1200, null );
-                this.pedidoService.registrar(pedido, pagoE);
-                
+        @Inject
+        private AmbitoSingleton ambitoSingleton;
+        
 
-                Pedido pedido2 = new Pedido("Dayerlin Aguilar", "Coca Cola", 80, "dgdac.7@gmail.com");
-                this.pedidoService.registrar(pedido2, pagoT);
+        @Override
+        public int run (String... args){
 
-                return 0;
-         }
+            System.out.println("********** AMBITO APLICATION **********");
+            
+            System.out.println(ambitoAplicacion); //Se imprime el objeto
+
+            System.out.println(this.ambitoAplicacion.incrementar());
+            System.out.println(this.ambitoAplicacion.incrementar());
+            System.out.println(this.ambitoAplicacion.incrementar());
+            
+
+            this.claseIntermedia.imprimirObjetoValor();
+
+            /*
+            System.out.println("********** AMBITO REQUEST **********");
+            System.out.println(this.ambitoRequest.incrementar());
+            System.out.println(this.ambitoRequest.incrementar());
+            System.out.println(this.ambitoRequest.incrementar());
+             */
+
+            System.out.println("********** AMBITO DEPENDENT **********");
+            System.out.println(ambitoInject);
+            System.out.println(this.ambitoInject.incrementar());
+            System.out.println(this.ambitoInject.incrementar());
+            System.out.println(this.ambitoInject.incrementar());
+
+            this.claseIntermedia.imprimirObjetoValorInject();
+
+            System.out.println("********** AMBITO SINGLETON **********");
+            System.out.println(ambitoSingleton);
+            System.out.println(this.ambitoSingleton.incrementar());
+            System.out.println(this.ambitoSingleton.incrementar());
+            System.out.println(this.ambitoSingleton.incrementar());
+
+            this.claseIntermedia.imprimirObjetoValorSingleton();
+
+            return 0;
+        }
+
+         
     }
 }
