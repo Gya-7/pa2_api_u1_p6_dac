@@ -1,4 +1,4 @@
-package uce.edu.pa2.api.bodega;
+package uce.edu.pa2.api.contenedor;
 
 public class Pedido {
 

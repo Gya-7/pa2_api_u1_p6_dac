@@ -1,7 +1,12 @@
-package uce.edu.pa2.api.bodega;
+package uce.edu.pa2.api.contenedor;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import uce.edu.pa2.api.bodega.Comprobante;
+import uce.edu.pa2.api.bodega.ComprobanteSelector;
+import uce.edu.pa2.api.bodega.Notificador;
+import uce.edu.pa2.api.bodega.NotificadorSelector;
+import uce.edu.pa2.api.bodega.PagoEstrategia;
 
 @ApplicationScoped
 public class PedidoService {

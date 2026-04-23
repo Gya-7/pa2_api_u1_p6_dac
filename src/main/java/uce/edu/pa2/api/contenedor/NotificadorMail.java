@@ -1,7 +1,8 @@
-package uce.edu.pa2.api.bodega;
+package uce.edu.pa2.api.contenedor;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Default;
+import uce.edu.pa2.api.bodega.Notificador;
 
 @ApplicationScoped
 @Default //<- Se usa cuando se tiene algo por defecto
