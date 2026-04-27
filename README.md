@@ -2,7 +2,7 @@
 
 ## Tarea 3
 
-Ejemplos de conceptos en los que se aplican los diferentes ambientes
+Ejemplos de conceptos en los que se aplican los diferentes ambitos
 
 1. Singleton
    - Cliente de API Externa (ej. Stripe o AWS)
