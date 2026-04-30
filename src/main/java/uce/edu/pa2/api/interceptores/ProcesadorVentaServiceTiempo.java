@@ -12,7 +12,10 @@ public class ProcesadorVentaServiceTiempo {
     // Antes de ejecutarse el metodo procesar se va a ejecutar todo lo que esta arriba de context proceed
     //Cuando se llegue al proceed, se ejecuta el procesar y cuando termine se regresa a debajo de procesar
     @MedirTiempo 
+    @Log
     public void procesar(Venta venta) {
+
+        System.out.println("Entro al metodo con los siguientes valores: " + venta.getCliente());
 
 
         //inicia la venta
@@ -31,6 +34,8 @@ public class ProcesadorVentaServiceTiempo {
         this.estadisticasVentasGlobales.registrarVenta(venta.getTotal());
 
         System.out.println("Pedido procesado");
+
+        //this.reprocesar(venta); //no se va a ejecutar el interceptor en el metodo, porque es una llamada interna 
 
     }
 

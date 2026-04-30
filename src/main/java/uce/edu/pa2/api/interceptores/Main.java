@@ -27,10 +27,11 @@ public class Main {
         
             Venta v1 = new Venta("Dayerlin Aguilar", 70);
             this.procesadorVentaService.procesar(v1);
-            this.procesadorVentaService.reprocesar(v1);
+            //System.out.println("\n");
+            //this.procesadorVentaService.reprocesar(v1);
 
             System.out.println("\n--------------------------");
-            this.inventarioService.registrar("Camarones");
+            //this.inventarioService.registrar("Camarones");
 
           
             return 0;
