@@ -7,28 +7,27 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class ProcesadorCompraService {
 
-    /*
-    @Inject
-    private DescuentoIVA descuentoIVA;
-    //Si se pone una interfaz, da problemas cuando se quiere acoplar mas clases
-     */
-    //Simula una implementacion de aplicaciones que se van a ir agregando en el futuro
     @Inject
     private Instance<Descuento> descuentos;
-    //Va a detectar todas las implementaciones que tiene mi sistema y las va a tratar como una lista
+    @Inject
+    private Instance<Impuesto> impuestos;
 
     public void procesar(Compra compra) {
 
-        /* PROGRAMACION MUY ACOPLADA
-        double valorAPagar = this.descuentoIVA.aplicar(compra.getSubTotal());
 
-        System.out.println("Su valor a pagar es: " + valorAPagar);
-         */
         double total = compra.getSubTotal();
 
+        System.out.println("Aplicando descuentos...");
         for (Descuento des : descuentos) {
 
             total = des.aplicar(total);
+        }
+        System.out.println("Valor después de descuentos: " + total);
+
+        System.out.println("\nAplicando impuestos...");
+        for (Impuesto imp : impuestos) {
+
+            total = imp.aplicarImpuesto(total);
         }
 
         compra.setTotal(total);

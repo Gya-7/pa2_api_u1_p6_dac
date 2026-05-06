@@ -22,7 +22,12 @@ public class Main {
         public int run(String... args) {
 
             Compra comp1 = new Compra("Dayerlin Aguilar", 100.0);
+            System.out.println("-------------------");
+            System.out.println("Valor inicial: " + comp1.getSubTotal());
+            System.out.println("Procesando compra...");
             this.compraService.procesar(comp1);
+            System.out.println("-------------------");
+
 
             return 0;
         }
