@@ -1,22 +1,21 @@
 package uce.edu.pa2.api.extensiones;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class DescuentoIVA implements Descuento{
+@Priority(1)
+public class DescuentoIVA implements Descuento {
 
     @Override
     public double aplicar(double valor) {
 
         System.out.println("Aplicando IVA");
-     
+
         double valorADescontar = valor * 0.15;
         return valor - valorADescontar;
-        
-       // return valor * 1.15;
 
+        // return valor * 1.15;
     }
-
-    
 
 }

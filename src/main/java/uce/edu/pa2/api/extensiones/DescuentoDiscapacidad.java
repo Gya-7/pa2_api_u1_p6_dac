@@ -1,9 +1,11 @@
 package uce.edu.pa2.api.extensiones;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class DescuentoDiscapacidad implements Descuento{
+@Priority(3)
+public class DescuentoDiscapacidad implements Descuento {
 
     @Override
     public double aplicar(double valor) {
